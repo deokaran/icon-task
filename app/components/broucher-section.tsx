@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Mail, CheckCircle2, AlertCircle, Loader2, Send } from "lucide-react";
 
 export default function Broucher() {
@@ -38,6 +38,9 @@ export default function Broucher() {
                 message: data.message || "Brochure sent to your email successfully!",
             });
             setEmail("");
+            setTimeout(() => {
+                 setStatus({ type: null, message: "" });
+            }, 15000);
         } catch (err: unknown) {
             const errorMessage =
                 err instanceof Error ? err.message : "Something went wrong";
@@ -49,6 +52,8 @@ export default function Broucher() {
             setLoading(false);
         }
     };
+
+    
 
     return (
         <section id="brochure" className="flex items-center justify-center flex-col my-16 px-4">

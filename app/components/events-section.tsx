@@ -29,7 +29,6 @@ interface EventCard {
 interface EventCategory {
     id: string;
     name: string;
-    tagline: string;
     icon: typeof Code2;
     coverImage: string;
     accentColor: string;
@@ -43,7 +42,6 @@ const eventCategories: EventCategory[] = [
     {
         id: "technical",
         name: "Technical Events",
-        tagline: "Hackathon & Problem Solving",
         icon: Code2,
         coverImage: "/events/Icon_Hackathon.jpeg",
         accentColor: "from-cyan-500/20 to-blue-500/20",
@@ -66,7 +64,6 @@ const eventCategories: EventCategory[] = [
     {
         id: "non-technical",
         name: "Non-Technical Events",
-        tagline: "Treasure Hunt & Tech Fair",
         icon: Sparkles,
         coverImage: "/events/Icon_TreasureHunt.jpeg",
         accentColor: "from-purple-500/20 to-pink-500/20",
@@ -94,7 +91,6 @@ const eventCategories: EventCategory[] = [
     {
         id: "gaming",
         name: "Gaming Events",
-        tagline: "Sports, Esports & Chess",
         icon: Gamepad2,
         coverImage: "/events/football.jpeg",
         accentColor: "from-emerald-500/20 to-teal-500/20",
@@ -226,7 +222,7 @@ export default function EventsSection() {
                                     </h3>
                                 </div>
                                 <span
-                                    className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${category.badgeBg}`}
+                                    className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border whitespace-nowrap ${category.badgeBg}`}
                                 >
                                     {category.cards.length}{" "}
                                     {category.cards.length === 1 ? "Event" : "Events"}
@@ -246,10 +242,8 @@ export default function EventsSection() {
 
                             {/* Card Footer / Action */}
                             <div className="p-5 pt-3 flex items-center justify-between border-t border-zinc-100 dark:border-zinc-800/80 mt-2 bg-zinc-50/50 dark:bg-zinc-900/50">
-                                <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">
-                                    {category.tagline}
-                                </span>
-                                <div className="flex items-center gap-1.5 text-xs font-semibold text-zinc-900 dark:text-white group-hover:text-cyan-500 transition-colors">
+                               
+                                <div className="flex items-center gap-1.5 text-xs font-semibold text-zinc-900 dark:text-white group-hover:text-[#b7202e\\\\\\\\\\\\\\\\\\] transition-colors">
                                     <span>View Events</span>
                                     <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                                 </div>

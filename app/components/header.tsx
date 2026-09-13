@@ -13,8 +13,7 @@ export default function Navbar() {
         { name: "Events", target: "events" },
         { name: "About", target: "about" },
         { name: "Register", target: "register" },
-        { name: "Location", target: "location" },
-        { name: "Brochure", target: "brochure" },
+        { name: "Others", target: "location" },
     ];
 
     const scrollToSection = (target: string) => {
@@ -99,13 +98,13 @@ export default function Navbar() {
                                 onClick={() => scrollToSection(link.target)}
                                 className={`px-4 py-1.5 text-sm font-medium rounded-full hover:bg-white/5 transition-colors relative group cursor-pointer ${
                                     activeSection === link.target
-                                        ? "text-cyan-300 font-semibold"
-                                        : "text-zinc-300 hover:text-cyan-300"
+                                        ? "text-[#b7202e] font-semibold"
+                                        : "text-zinc-300 hover:text-[#b7202e]"
                                 }`}
                             >
                                 {link.name}
                                 <span
-                                    className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-gradient-to-r from-cyan-400 to-purple-500 transition-all duration-300 ${
+                                    className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px]  transition-all duration-300 ${
                                         activeSection === link.target
                                             ? "w-3/5"
                                             : "w-0 group-hover:w-3/5"

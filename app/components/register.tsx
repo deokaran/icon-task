@@ -1,15 +1,24 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-const events = [
-    "Business Quiz",
-    "Case Study",
-    "Marketing Challenge",
-    "Finance Challenge",
-    "Debate",
+const eventGroups = [
+    {
+        category: "Technical Events",
+        events: ["CodeIcon (Hackathon)"],
+    },
+    {
+        category: "Non-Technical Events",
+        events: ["Treasure Hunt", "Tech Fair"],
+    },
+    {
+        category: "Gaming Events",
+        events: ["Pickleball", "FIFA", "Football", "Chess"],
+    },
 ];
+
+const events = eventGroups.flatMap((group) => group.events);
 
 export default function Register() {
     const [form, setForm] = useState({
@@ -33,6 +42,18 @@ export default function Register() {
             [e.target.name]: e.target.value,
         });
     };
+
+    useEffect(() => {
+        const handleSelectEvent = (e: Event) => {
+            const customEvent = e as CustomEvent<string>;
+            if (customEvent.detail) {
+                setForm((prev) => ({ ...prev, event: customEvent.detail }));
+            }
+        };
+
+        window.addEventListener("select-event", handleSelectEvent);
+        return () => window.removeEventListener("select-event", handleSelectEvent);
+    }, []);
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
@@ -76,16 +97,16 @@ export default function Register() {
             setLoading(false);
         }
     };
-// ed1c24
+    // ed1c24
     return (
-        <main className="min-h-screen bg-[#b7202e] px-6 py-20  grid grid-cols-2">
-           <div className="col-span-1">
-             <DotLottieReact
-      src="https://lottie.host/b552a67b-1498-443b-ad6d-7cc54300f0e4/XYuOLpXS3V.lottie"
-      loop
-      autoplay
-    />
-           </div>
+        <main id="register" className="min-h-screen bg-[#b7202e] px-6 py-20 grid md:grid-cols-2">
+            <div className="col-span-1">
+                <DotLottieReact
+                    src="https://lottie.host/b552a67b-1498-443b-ad6d-7cc54300f0e4/XYuOLpXS3V.lottie"
+                    loop
+                    autoplay
+                />
+            </div>
             <div className="mx-auto max-w-2xl col-span-1">
                 <div className="mb-10">
                     <p className="mb-3 text-sm uppercase tracking-[0.3em] text-white">
@@ -232,16 +253,20 @@ export default function Register() {
                             value={form.event}
                             onChange={handleChange}
                             required
-                            className="w-full rounded-xl border border-neutral-800 bg-white px-4 py-4  outline-none transition focus:border-white"
+                            className="w-full rounded-xl border border-neutral-800 bg-white px-4 py-4 text-black outline-none transition focus:border-white"
                         >
                             <option value="">
                                 Choose an event
                             </option>
 
-                            {events.map((event) => (
-                                <option key={event} value={event}>
-                                    {event}
-                                </option>
+                            {eventGroups.map((group) => (
+                                <optgroup key={group.category} label={group.category}>
+                                    {group.events.map((event) => (
+                                        <option key={event} value={event}>
+                                            {event}
+                                        </option>
+                                    ))}
+                                </optgroup>
                             ))}
                         </select>
                     </div>

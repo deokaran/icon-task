@@ -6,6 +6,7 @@ import CodeEditorCard from "./components/events-section";
 import Participate from "./components/participate";
 import Register from "./components/register";
 import Location from "./components/location";
+import Broucher from "./components/broucher-section";
 
 export default function Home() {
   return (
@@ -18,20 +19,22 @@ export default function Home() {
       <div className="z-10 m-0 p-0 ">
         <Landing />
       </div>
-      <img src="/icon-wavedrop.png" className="w-[100vw] wavedrop-img" />
-      <div className="z-9 mx-25 mt-20 ">
+      <img src="/icon-wavedrop.png" className="w-full wavedrop-img" alt="" />
+      <div className="mx-4 sm:mx-8 md:mx-16 lg:mx-20 xl:mx-24 mt-12 sm:mt-20">
         <CodeEditorCard />
       </div>
-      <div className="z-9 mx-25">
+      <div className="mx-4 sm:mx-8 md:mx-16 lg:mx-20 xl:mx-24">
         <About />
       </div>
-      <div className="z-10 mx-0">
+      <div className="mx-0">
         <Register />
       </div>
-      <div className="z-10 mx-0">
-    <Location/>
+      <div className="mx-0">
+        <Location />
       </div>
-
+      <div className="mx-4 sm:mx-8 md:mx-16 lg:mx-20 xl:mx-24">
+        <Broucher />
+      </div>
     </>
-  );
+    );
 }

@@ -3,7 +3,7 @@ export default function Footer() {
 
     return <>
         <footer className="bg-[#b7202e] text-white/70">
-            <div className="mx-25 upper-footer grid gap-10 md:grid-cols-3 mt-5">
+            <div className="mx-25   grid gap-10 md:grid-cols-3 mt-5">
 
                
                  <div className="col-span-1">

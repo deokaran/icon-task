@@ -44,22 +44,22 @@ export async function sendBrochureEmail(toEmail: string): Promise<SendBrochureRe
         (process.env.EMAIL_USER ? `"ICON 2026" <${process.env.EMAIL_USER}>` : '"ICON 2026" <no-reply@icon-fest.com>');
 
     // Check if any brochure PDF exists in public folder to attach
-    const attachments: Array<{ filename: string; path: string }> = [];
-    const possiblePdfs = [
-        path.join(process.cwd(), "public", "ICON_2026_Brochure.pdf"),
-        path.join(process.cwd(), "public", "brochure.pdf"),
-        path.join(process.cwd(), "public", "events-brochure.pdf"),
-    ];
+    // const attachments: Array<{ filename: string; path: string }> = [];
+    // const possiblePdfs = [
+    //     path.join(process.cwd(), "public", "ICON_2026_Brochure.pdf"),
+    //     path.join(process.cwd(), "public", "brochure.pdf"),
+    //     path.join(process.cwd(), "public", "events-brochure.pdf"),
+    // ];
 
-    for (const pdfPath of possiblePdfs) {
-        if (fs.existsSync(pdfPath)) {
-            attachments.push({
-                filename: "ICON_2026_Brochure.pdf",
-                path: pdfPath,
-            });
-            break;
-        }
-    }
+    // for (const pdfPath of possiblePdfs) {
+    //     if (fs.existsSync(pdfPath)) {
+    //         attachments.push({
+    //             filename: "ICON_2026_Brochure.pdf",
+    //             path: pdfPath,
+    //         });
+    //         break;
+    //     }
+    // }
 
     const htmlContent = `
 <!DOCTYPE html>
@@ -217,7 +217,7 @@ export async function sendBrochureEmail(toEmail: string): Promise<SendBrochureRe
         subject: "ICON 2026 Official Event Brochure & Schedule",
         text: `Thank you for your interest in ICON 2026!\n\nEvents Date: 13th & 14th February 2026\nVenue: K J Somaiya Institute of Management, Mumbai\n\nFeatured Events:\n- CodeIcon Hackathon (Prize: ₹22,500)\n- Treasure Hunt & Tech Fair\n- Football, FIFA, Pickleball, Chess\n\nRegister online at our portal or contact us at icon.simsr@somaiya.edu`,
         html: htmlContent,
-        attachments,
+        // attachments,
     });
 
     return {

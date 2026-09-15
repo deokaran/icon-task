@@ -12,11 +12,11 @@ export default function Home() {
   return (
     <>
 
-      <div className="z-9 absolute bg-[#000000]">
+      <div className="absolute top-0 left-0 w-full h-[90vh] overflow-hidden pointer-events-none z-0 bg-black">
         {/* <GalaxyBackground /> */}
         <LottieBg />
       </div>
-      <div className="z-10 m-0 p-0 ">
+      <div className="relative z-10 m-0 p-0">
         <Landing />
       </div>
       <img src="/icon-wavedrop.png" className="w-full wavedrop-img" alt="" />

@@ -27,7 +27,7 @@ export default function Cursor() {
 
 
     return <>
-        <div id="cursor" className="bg-[radial-gradient(circle,white_30%,black_100%)] fixed top-0 left-0 z-110 rounded-full pointer-events-none mix-blend-difference"  style={{
+        <div id="cursor" className="bg-[radial-gradient(circle,white_30%,black_100%)] fixed top-0 left-0 z-110 rounded-full pointer-events-none mix-blend-difference hidden md:block"  style={{
                 width: cursorSize,
                 height: cursorSize
             }}

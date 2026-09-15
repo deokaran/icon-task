@@ -16,7 +16,7 @@ body {
 
 
 .wavedrop-img{
-    transform: translateX(-10px) translateY(-20);
+    transform: translateX(-10px) translateY(-10);
     scale: 1.2;
     filter: brightness(0);
 

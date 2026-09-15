@@ -1,6 +1,5 @@
+import "server-only";
 import nodemailer from "nodemailer";
-import fs from "fs";
-import path from "path";
 
 // Create reusable transporter object using SMTP transport
 export function getMailTransporter() {
